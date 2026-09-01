@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 authors = [{name = "CICCI Research"}]
 maintainers = [{name = "CICCI Research"}]
+keywords = ["NOMAD", "ARKEO", "photovoltaics", "solar cells", "research data"]
 dependencies = [
   "nomad-lab>=1.4.3,<1.5",
   "numpy>=1.24"
@@ -17,6 +18,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.urls]
+Homepage = "https://www.cicciresearch.com/"
+Repository = "https://github.com/cicciresearch/nomad-arkeo-plugin"
+Documentation = "https://github.com/cicciresearch/nomad-arkeo-plugin/tree/main/docs"
+Issues = "https://github.com/cicciresearch/nomad-arkeo-plugin/issues"
 
 [project.entry-points.'nomad.plugin']
 parser_entry_point = "nomad_arkeo_plugin.parsers:parser_entry_point"

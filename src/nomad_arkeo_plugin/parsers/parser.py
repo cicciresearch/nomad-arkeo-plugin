@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 from nomad.parsing.parser import MatchingParser
+
 from nomad_arkeo_plugin.schema_packages.schema_package import (
     ArkeoCellSettings,
     ArkeoChannelSettings,
@@ -18,6 +19,7 @@ from nomad_arkeo_plugin.schema_packages.schema_package import (
     ArkeoTrackingResult,
     ArkeoTrackingSettings,
 )
+
 from .text_reader import (
     ARKEO_FILENAME_RE,
     decode_arkeo_bytes,
@@ -27,7 +29,6 @@ from .text_reader import (
 
 if TYPE_CHECKING:
     from nomad.datamodel.datamodel import EntryArchive
-    from structlog.stdlib import BoundLogger
 
 
 def _finite(value):
@@ -38,7 +39,7 @@ def _array(values):
     return np.asarray(values or [], dtype=float)
 
 
-def _read_bytes(archive: "EntryArchive", filename: str) -> bytes:
+def _read_bytes(archive: EntryArchive, filename: str) -> bytes:
     try:
         with archive.m_context.raw_file(filename, mode="rb") as handle:
             return handle.read()
@@ -92,7 +93,11 @@ class ArkeoStabilityParser(MatchingParser):
         try:
             text = decoded_buffer
             if not text:
-                text = decode_arkeo_bytes(buffer) if buffer else decode_arkeo_bytes(Path(filename).read_bytes())
+                text = (
+                    decode_arkeo_bytes(buffer)
+                    if buffer
+                    else decode_arkeo_bytes(Path(filename).read_bytes())
+                )
         except Exception:
             return False
         return is_arkeo_stability_parameters(filename, text)
@@ -104,7 +109,9 @@ class ArkeoStabilityParser(MatchingParser):
 
         tracking_file = _candidate_auxiliary(mainfile, "Tracking", device)
         jv_file = _candidate_auxiliary(mainfile, "JV", device)
-        tracking_text = decode_arkeo_bytes(_read_bytes(archive, tracking_file)) if tracking_file else None
+        tracking_text = (
+            decode_arkeo_bytes(_read_bytes(archive, tracking_file)) if tracking_file else None
+        )
         jv_text = decode_arkeo_bytes(_read_bytes(archive, jv_file)) if jv_file else None
         parsed = parse_stability_measurement(main_text, tracking_text, jv_text)
         p = parsed["parameters"]
@@ -115,9 +122,11 @@ class ArkeoStabilityParser(MatchingParser):
         measurement.note = general.get("note")
         if general.get("measurement_start"):
             measurement.measurement_start = general["measurement_start"]
-        measurement.source_files = [Path(mainfile).name] + (
-            [Path(tracking_file).name] if tracking_file else []
-        ) + ([Path(jv_file).name] if jv_file else [])
+        measurement.source_files = (
+            [Path(mainfile).name]
+            + ([Path(tracking_file).name] if tracking_file else [])
+            + ([Path(jv_file).name] if jv_file else [])
+        )
 
         instrument = ArkeoInstrument()
         for key, value in p["instrument"].items():
@@ -155,9 +164,13 @@ class ArkeoStabilityParser(MatchingParser):
 
         jvs = ArkeoJVSettings()
         for src, dst in {
-            "vmin_v": "vmin", "vmax_v": "vmax", "voltage_step_mv": "voltage_step",
-            "scan_rate_mv_s": "scan_rate", "scan_order": "scan_order",
-            "auto_detect_voc": "auto_detect_voc", "overvoltage_percent": "overvoltage_percent",
+            "vmin_v": "vmin",
+            "vmax_v": "vmax",
+            "voltage_step_mv": "voltage_step",
+            "scan_rate_mv_s": "scan_rate",
+            "scan_order": "scan_order",
+            "auto_detect_voc": "auto_detect_voc",
+            "overvoltage_percent": "overvoltage_percent",
         }.items():
             value = p["jv_settings"].get(src)
             if value is not None and not (isinstance(value, float) and math.isnan(value)):
@@ -166,13 +179,24 @@ class ArkeoStabilityParser(MatchingParser):
 
         summary = ArkeoStabilitySummary()
         for src, dst in {
-            "time_hours": "time_hours", "voc_fw": "voc_fw", "jsc_fw": "jsc_fw",
-            "v_mpp_fw": "v_mpp_fw", "j_mpp_fw": "j_mpp_fw", "p_mpp_fw": "p_mpp_fw",
-            "rs_fw": "series_resistance_fw", "rsh_fw": "shunt_resistance_fw",
-            "ff_fw": "fill_factor_fw", "eff_fw": "efficiency_fw", "voc_rv": "voc_rv",
-            "jsc_rv": "jsc_rv", "v_mpp_rv": "v_mpp_rv", "j_mpp_rv": "j_mpp_rv",
-            "p_mpp_rv": "p_mpp_rv", "rs_rv": "series_resistance_rv",
-            "rsh_rv": "shunt_resistance_rv", "ff_rv": "fill_factor_rv",
+            "time_hours": "time_hours",
+            "voc_fw": "voc_fw",
+            "jsc_fw": "jsc_fw",
+            "v_mpp_fw": "v_mpp_fw",
+            "j_mpp_fw": "j_mpp_fw",
+            "p_mpp_fw": "p_mpp_fw",
+            "rs_fw": "series_resistance_fw",
+            "rsh_fw": "shunt_resistance_fw",
+            "ff_fw": "fill_factor_fw",
+            "eff_fw": "efficiency_fw",
+            "voc_rv": "voc_rv",
+            "jsc_rv": "jsc_rv",
+            "v_mpp_rv": "v_mpp_rv",
+            "j_mpp_rv": "j_mpp_rv",
+            "p_mpp_rv": "p_mpp_rv",
+            "rs_rv": "series_resistance_rv",
+            "rsh_rv": "shunt_resistance_rv",
+            "ff_rv": "fill_factor_rv",
             "eff_rv": "efficiency_rv",
         }.items():
             setattr(summary, dst, _array(p["summary"][src]))
@@ -182,9 +206,12 @@ class ArkeoStabilityParser(MatchingParser):
             t = parsed["tracking"]
             settings = ArkeoTrackingSettings()
             for src, dst in {
-                "algorithm": "algorithm", "jv_timing": "jv_timing",
-                "jv_interval_hours": "jv_interval", "test_duration_hours": "test_duration",
-                "startup_time_raw": "startup_time_raw", "min_dv_v": "min_dv",
+                "algorithm": "algorithm",
+                "jv_timing": "jv_timing",
+                "jv_interval_hours": "jv_interval",
+                "test_duration_hours": "test_duration",
+                "startup_time_raw": "startup_time_raw",
+                "min_dv_v": "min_dv",
             }.items():
                 value = t["settings"].get(src)
                 if value is not None and not (isinstance(value, float) and math.isnan(value)):
@@ -208,8 +235,11 @@ class ArkeoStabilityParser(MatchingParser):
                 result = ArkeoJVResult()
                 result.direction = d["direction"]
                 for src, dst in {
-                    "voc_v": "voc", "jsc_a_cm2": "jsc", "v_mpp_v": "v_mpp",
-                    "j_mpp_a_cm2": "j_mpp", "p_mpp_w_cm2": "p_mpp",
+                    "voc_v": "voc",
+                    "jsc_a_cm2": "jsc",
+                    "v_mpp_v": "v_mpp",
+                    "j_mpp_a_cm2": "j_mpp",
+                    "p_mpp_w_cm2": "p_mpp",
                     "series_resistance_ohm": "series_resistance",
                     "shunt_resistance_ohm": "shunt_resistance",
                     "fill_factor_percent": "fill_factor_percent",
