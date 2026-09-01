@@ -49,15 +49,24 @@ The dedicated interface can be used to search and filter ARKEO measurements usin
 
 Current development target: **NOMAD 1.4.3**.
 
-## Installation
+## Documentation
 
-See the [installation guide](docs/how_to/install_this_plugin.md).
+Full documentation is available at:
+
+https://cicciresearch.github.io/nomad-arkeo-plugin/
+
+- [Installation guide](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/install_this_plugin/)
+- [How to use](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/use_this_plugin/)
+
+## Installation
 
 Clone the plugin with:
 
 ```bash
 git clone https://github.com/cicciresearch/nomad-arkeo-plugin.git
 ```
+
+Then follow the [installation guide](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/install_this_plugin/).
 
 ## Usage
 
@@ -78,6 +87,8 @@ Use:
 `EXPLORE → ARKEO`
 
 to search and filter processed measurements.
+
+See the full [usage guide](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/use_this_plugin/).
 
 The example files included in this repository are intended only for demonstration and testing.
 
