@@ -1,99 +1,108 @@
-# nomad-arkeo-plugin
+# ARKEO NOMAD Plugin
 
-Prototype NOMAD plugin for **CICCI Research ARKEO** photovoltaic measurement data.
+NOMAD plugin for **CICCI Research ARKEO** photovoltaic measurement data.
 
-This first version follows the same overall NOMAD architecture used by Quantum
-Yield Berlin's `nomad-luqy-plugin`:
+The plugin allows NOMAD Oasis to recognize original ARKEO measurement files and convert them into structured, searchable research data.
 
-- a **parser** for the instrument raw text files;
-- a **Python schema package**;
-- a dedicated **ARKEO Explorer** NOMAD app;
-- an **example upload**.
+## Features
 
-## v0.1.0 scope
+- Automatic parsing of supported ARKEO TXT files
+- Structured ARKEO measurement entries
+- Instrument and device metadata
+- JV and stability results
+- Dedicated **ARKEO Explorer**
+- Compatible with private NOMAD Oasis installations
 
-The first implementation supports an ARKEO **Stability** export consisting of:
+## Supported measurements
 
-- `Stability (Parameters)` — NOMAD mainfile;
-- `Stability (Tracking)` — MPPT time series;
-- `Stability (JV)` — JV snapshot.
+Version **0.1.0** currently supports ARKEO Stability measurements:
 
-The parser creates one `ArkeoStabilityMeasurement` from the Parameters file and
-looks in the same directory for the corresponding Tracking and JV files.
+- Stability (Parameters)
+- Stability (Tracking)
+- Stability (JV)
 
-The schema includes instrument provenance, sample/cell settings, irradiance, JV
-settings, stability/MPPT settings, tracking arrays, forward/reverse JV arrays and
-parameters, stability summary arrays, and source filenames.
+The Parameters file is recognized as the main file. Associated Tracking and JV files in the same folder are processed automatically.
 
-## ARKEO provenance
+## Workflow
 
-Legacy ARKEO files do not contain a formal instrument block. v0.1.0 identifies
-them using both the filename convention and characteristic ARKEO header sections.
-The structured entry records that this identity was inferred.
+ARKEO measurement  
+→ Original TXT files  
+→ ARKEO NOMAD Plugin  
+→ Structured NOMAD entry  
+→ Search, compare, share or publish
 
-Future ARKEO exports should add:
-
-```text
-[Instrument]
-Manufacturer	CICCI Research
-Product	ARKEO
-Model	ARKEO Multichannel
-Serial Number	ARK-2026-00123
-Software	ARKEO Control
-Software Version	...
-Data Format	CICCI-ARKEO-1
-```
-
-The parser already reads these fields when they are present.
+No manually created `.archive.yaml` file is required for supported ARKEO files.
 
 ## ARKEO Explorer
 
-The plugin registers **ARKEO Explorer**, locked to the ARKEO schema. It provides
-search/filter fields for instrument, model, device, date, irradiance, tracking
-algorithm, duration, Voc, Jsc, fill factor and efficiency.
+After installation, NOMAD provides:
 
-This is the intended mechanism for finding ARKEO measurements. A global CICCI
-Dataset is not required simply to make entries discoverable.
+`EXPLORE → ARKEO`
+
+The dedicated interface can be used to search and filter ARKEO measurements using structured metadata and results.
+
+## Requirements
+
+- NOMAD `>=1.4.3,<1.5`
+- Python `>=3.10`
+- NOMAD Oasis for local or institutional deployment
+
+Current development target: **NOMAD 1.4.3**.
+
+## Installation
+
+See the [installation guide](docs/how_to/install_this_plugin.md).
+
+Clone the plugin with:
+
+```bash
+git clone https://github.com/cicciresearch/nomad-arkeo-plugin.git
+```
+
+## Usage
+
+Upload the original ARKEO TXT files belonging to the same measurement to NOMAD Oasis.
+
+For a Stability measurement, this normally includes:
+
+```text
+Stability (Parameters)
+Stability (Tracking)
+Stability (JV)
+```
+
+The plugin processes the files automatically and creates a structured ARKEO entry.
+
+Use:
+
+`EXPLORE → ARKEO`
+
+to search and filter processed measurements.
+
+The example files included in this repository are intended only for demonstration and testing.
+
+## Privacy
+
+The plugin does not automatically publish research data.
+
+Data uploaded to NOMAD Oasis remain subject to the privacy, sharing, and publication settings of the institution's NOMAD installation.
 
 ## Development
 
 ```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-pip install -U pip
 pip install -e ".[dev]"
 pytest -q
+ruff check .
 ```
 
-Target NOMAD version: **1.4.3**.
+## About
 
-## Oasis installation
+**ARKEO** is a modular photovoltaic and optoelectronic characterization platform developed by **CICCI Research**.
 
-The plugin must be installed in the Python environment used by the NOMAD Oasis
-`app` and `worker`; uploading this repository as raw data is not enough.
-
-For a standard NOMAD distribution, host the plugin in Git and add it to the
-distribution's plugin dependencies, e.g.:
-
-```toml
-[project.optional-dependencies]
-plugins = [
-  "nomad-arkeo-plugin @ git+https://github.com/<CICCI-ORG>/nomad-arkeo-plugin.git@<COMMIT>"
-]
-```
-
-Then build/use the resulting custom distribution image and restart the Oasis.
-
-## Not implemented yet
-
-- standalone JV-only uploads;
-- EIS / IMPS / IMVS / TPV / TPC / EQE and other ARKEO routines;
-- automatic Central NOMAD upload;
-- DOI/dataset creation;
-- website synchronization;
-- notifications to CICCI.
+https://www.cicciresearch.com/
 
 ## License
 
-To be selected by CICCI Research before public release.
+Copyright © CICCI Research.
+
+License information will be added before wider software distribution.

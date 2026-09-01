@@ -1,0 +1,4 @@
+- Additional ARKEO measurement routines
+- Extended metadata support
+- Improved search and visualization
+- Compatibility with future NOMAD releases

@@ -6,11 +6,12 @@ except ModuleNotFoundError:
 
 
 if ParserEntryPoint is not None:
+
     class ArkeoParserEntryPoint(ParserEntryPoint):
         def load(self):
             from .parser import ArkeoStabilityParser
-            return ArkeoStabilityParser()
 
+            return ArkeoStabilityParser()
 
     parser_entry_point = ArkeoParserEntryPoint(
         name="ARKEO Stability Parser",

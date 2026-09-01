@@ -1,9 +1,15 @@
 # Changelog
 
 ## 0.1.0
-- First ARKEO NOMAD plugin prototype.
-- Stability Parameters mainfile recognition.
-- Tracking and JV sibling parsing.
-- Structured ARKEO stability/JV/MPPT schema.
-- ARKEO Explorer app.
-- Example upload and parser tests.
+
+Initial public release.
+
+### Added
+
+- ARKEO Stability Parameters recognition
+- MPPT Tracking parsing
+- JV parsing
+- Structured ARKEO measurement schema
+- ARKEO Explorer
+- Example upload
+- Parser tests

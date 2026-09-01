@@ -1,8 +1,36 @@
+# Python
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .ruff_cache/
 .venv/
+venv/
 dist/
 build/
-*.egg-info/
+
+# Secrets / local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local NOMAD / Docker data
+.volumes/
+docker-data/
+logs/
+*.log
+
+# Local experimental data
+raw-data/
+private-data/
+customer-data/
+local-tests/

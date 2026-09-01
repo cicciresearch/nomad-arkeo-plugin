@@ -1,11 +1,11 @@
 ## Header ##
 [General info]
-User	Cicci Research
-Device	Sample-1A
+User	Example User
+Device	Demo-Cell-01
 Cell area (cm2)	1
 Test	Stability (Parameters)
-Date	2026-08-07
-Time	16:49:09
+Date	2026-01-01
+Time	12:00:00
 Note	SMU 1A
 
 [Channel Settings]
@@ -18,6 +18,7 @@ Type	Cell
 Cell Area (cm2)	1
 #Cells	1
 
+# Synthetic demonstration data. Not obtained from a real device.
 [JV Settings]
 Vmin (V)	-0.5
 Vmax (V)	0.5
@@ -32,4 +33,4 @@ Irradiance (mW/cm²)	100
 
 ## Data ##
 Time (Hours)	Voc (V) FW	Jsc (mA/cm2) FW	V_MPP (V) FW	J_MPP (mA/cm2) FW	P_MPP (mW/cm2) FW	Rs (Ohm) FW	R// (Ohm) FW	Fill Factor (%) FW	Efficiency (%) FW	Voc (V) RV	Jsc (mA/cm2) RV	V_MPP (V) RV	J_MPP (mA/cm2) RV	P_MPP (mW/cm2) RV	Rs (Ohm) RV	R// (Ohm) RV	Fill Factor (%) RV	Efficiency (%) RV
-1.113230E-3	-6.760398E-1	6.853008E-2	-6.806480E-1	6.760397E-2	-4.601450E-2	8.858230E+3	8.858230E+3	9.932104E+1	-4.601450E-2	-7.649034E-1	0.000000E+0	-7.649034E-1	0.000000E+0	-0.000000E+0	NaN	NaN	NaN	-0.000000E+0
+1.142330E-3	-6.7423398E-1	6.843008E-2	-6.843480E-1	6.740397E-2	-4.621350E-2	8.844430E+3	8.858230E+3	9.932104E+1	-4.601450E-2	-7.649034E-1	0.000000E+0	-7.649034E-1	0.000000E+0	-0.000000E+0	NaN	NaN	NaN	-0.000000E+0

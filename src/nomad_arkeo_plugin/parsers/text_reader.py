@@ -151,9 +151,25 @@ def parse_parameters(text: str) -> dict[str, Any]:
     _, rows = _table(blocks.get("Data", {}).get("lines", []))
 
     names = [
-        "time_hours", "voc_fw", "jsc_fw", "v_mpp_fw", "j_mpp_fw", "p_mpp_fw",
-        "rs_fw", "rsh_fw", "ff_fw", "eff_fw", "voc_rv", "jsc_rv", "v_mpp_rv",
-        "j_mpp_rv", "p_mpp_rv", "rs_rv", "rsh_rv", "ff_rv", "eff_rv",
+        "time_hours",
+        "voc_fw",
+        "jsc_fw",
+        "v_mpp_fw",
+        "j_mpp_fw",
+        "p_mpp_fw",
+        "rs_fw",
+        "rsh_fw",
+        "ff_fw",
+        "eff_fw",
+        "voc_rv",
+        "jsc_rv",
+        "v_mpp_rv",
+        "j_mpp_rv",
+        "p_mpp_rv",
+        "rs_rv",
+        "rsh_rv",
+        "ff_rv",
+        "eff_rv",
     ]
     summary = {name: [] for name in names}
 
@@ -242,8 +258,12 @@ def parse_tracking(text: str) -> dict[str, Any]:
     env = _section(blocks, "Header", "Environment Settings")
     _, rows = _table(blocks.get("Data", {}).get("lines", []))
     result = {
-        "time_axis_kind": None, "time_hours": [], "timestamp_text": [],
-        "voltage_v": [], "current_density_ma_cm2": [], "power_density_mw_cm2": [],
+        "time_axis_kind": None,
+        "time_hours": [],
+        "timestamp_text": [],
+        "voltage_v": [],
+        "current_density_ma_cm2": [],
+        "power_density_mw_cm2": [],
     }
     for row in rows:
         raw_time = row.get("Time (Hours)", "")
@@ -260,9 +280,7 @@ def parse_tracking(text: str) -> dict[str, Any]:
         result["current_density_ma_cm2"].append(
             _first(row, "Current Density (mA/cm²)", "Current Density (mA/cm2)")
         )
-        result["power_density_mw_cm2"].append(
-            _first(row, "Power (mW/cm²)", "Power (mW/cm2)")
-        )
+        result["power_density_mw_cm2"].append(_first(row, "Power (mW/cm²)", "Power (mW/cm2)"))
 
     return {
         "settings": {
