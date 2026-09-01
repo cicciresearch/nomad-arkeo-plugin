@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nomad-arkeo-plugin"
+version = "0.1.0"
+description = "NOMAD plugin for parsing and exploring CICCI Research ARKEO photovoltaic measurement data."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "CICCI Research"}]
+maintainers = [{name = "CICCI Research"}]
+dependencies = [
+  "nomad-lab>=1.4.3,<1.5",
+  "numpy>=1.24"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[project.entry-points.'nomad.plugin']
+parser_entry_point = "nomad_arkeo_plugin.parsers:parser_entry_point"
+schema_package_entry_point = "nomad_arkeo_plugin.schema_packages:schema_package_entry_point"
+app_entry_point = "nomad_arkeo_plugin.apps:app_entry_point"
+example_upload_entry_point = "nomad_arkeo_plugin.example_uploads:example_upload_entry_point"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

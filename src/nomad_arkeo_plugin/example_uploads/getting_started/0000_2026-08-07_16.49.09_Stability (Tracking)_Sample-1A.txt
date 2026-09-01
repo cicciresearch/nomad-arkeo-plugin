@@ -1,0 +1,36 @@
+## Header ##
+[General info]
+User	Cicci Research
+Device	Sample-1A
+Cell area (cm2)	1
+Test	Stability (Tracking)
+Date	2026-08-07
+Time	16:49:09
+Note	SMU 1A
+
+[Channel Settings]
+Voltage Range	10 V
+Current Range	1 mA (L)
+
+[Cell Settings]
+Inverted	Yes
+Type	Cell
+Cell Area (cm2)	1
+#Cells	1
+
+[Tracking Settings]
+Algorithm	MPPT
+JV Timing	Absolute
+JV interval (hours)	0.2
+Test duration (hours)	100
+Start-up Time	16:49:09 07/08/2026
+min dV (V)	5.0000E-2
+
+[Environment Settings]
+Irradiance (mW/cm²)	100
+
+## Data ##
+Time (Hours)	Voltage (V)	Current Density (mA/cm²)	Power (mW/cm²)
+0.001458	-8.0719E-1	8.0483E-2	-6.4965E-2
+0.004428	-8.2352E-1	8.2296E-2	-6.7772E-2
+0.007491	-8.2431E-1	8.2382E-2	-6.7909E-2

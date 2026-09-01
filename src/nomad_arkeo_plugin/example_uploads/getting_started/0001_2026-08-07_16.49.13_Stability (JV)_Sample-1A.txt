@@ -1,0 +1,61 @@
+## Header ##
+[General info]
+User	Cicci Research
+Device	Sample-1A
+Cell area (cm2)	1
+Test	Stability (JV)
+Date	2026-08-07
+Time	16:49:13
+Note	SMU 1A
+
+[Channel Settings]
+Voltage Range	10 V
+Current Range	1 mA (L)
+
+[Cell Settings]
+Inverted	Yes
+Type	Cell
+Cell Area (cm2)	1
+#Cells	1
+
+[JV Settings]
+Vmin (V)	-0.5
+Vmax (V)	0.5
+Voltage Step (mV)	200
+Scan Rate (mV/s)	1000
+Scan Order	FW then RV
+Auto-detect Voc	Yes
+Overvoltage (%)	10
+
+[Environment Settings]
+Irradiance (mW/cm²)	100
+
+## Parameters ##
+[Forward]
+Voc (V)	-0.67604
+Jsc (A/cm²)	6.8530E-5
+V_MPP (V)	-0.68065
+J_MPP (A/cm²)	6.76040E-5
+P_MPP (W/cm²)	-4.60145E-5
+Rs (Ohm)	8.86E+3
+R// (Ohm)	8.86E+3
+FF (%)	99.321
+Eff (%)	-0.046
+
+[Reverse]
+Voc (V)	-0.76490
+Jsc (A/cm²)	0.0000E+0
+V_MPP (V)	-0.76490
+J_MPP (A/cm²)	0.00000E+0
+P_MPP (W/cm²)	-0.00000E+0
+Rs (Ohm)	NaN
+R// (Ohm)	NaN
+FF (%)	NaN
+Eff (%)	-0.000
+
+## Data ##
+V_FW (V)	J_FW (A/cm²)	V_RV (V)	J_RV (A/cm²)
+-8.25633E-1	8.26607E-5	-7.64903E-1	7.77954E-5
+-8.26046E-1	8.26826E-5		
+-8.25525E-1	8.26636E-5		
+-6.76040E-1	6.85301E-5		
