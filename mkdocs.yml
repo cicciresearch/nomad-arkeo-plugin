@@ -1,5 +1,5 @@
 site_name: ARKEO NOMAD Plugin
-site_description: Documentation for the CICCI Research ARKEO NOMAD Plugin
+site_description: Documentation for the ARKEO NOMAD Plugin by CICCI Research s.r.l.
 site_url: https://cicciresearch.github.io/nomad-arkeo-plugin/
 repo_url: https://github.com/cicciresearch/nomad-arkeo-plugin
 repo_name: cicciresearch/nomad-arkeo-plugin
@@ -11,9 +11,9 @@ nav:
   - Home: index.md
   - Installation: how_to/install_this_plugin.md
   - How to use: how_to/use_this_plugin.md
+  - Support: support.md
   - Privacy: privacy.md
   - Release v0.1.0: https://github.com/cicciresearch/nomad-arkeo-plugin/releases/tag/v0.1.0
-  - Support: support.md
 
 markdown_extensions:
   - admonition
@@ -28,4 +28,4 @@ extra:
 
 copyright: >
   © 2026 CICCI Research s.r.l. ·
-  ARKEO is developed by CICCI Research.
+  ARKEO is developed by CICCI Research s.r.l.
