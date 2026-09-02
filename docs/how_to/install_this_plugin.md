@@ -22,7 +22,7 @@ Clone the repository:
 
 ```bash
 cd C:\NOMAD
-git clone https://github.com/cicciresearch/nomad-arkeo-plugin.git
+git clone --branch v0.1.0 --depth 1 https://github.com/cicciresearch/nomad-arkeo-plugin.git
 ```
 
 ## 2. Build the ARKEO-enabled NOMAD image
