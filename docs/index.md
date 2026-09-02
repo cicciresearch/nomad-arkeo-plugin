@@ -38,8 +38,14 @@ For production or institutional installations, use the tagged release rather tha
 
 ## About
 
-**ARKEO** is a modular photovoltaic and optoelectronic characterization platform developed by **CICCI Research s.r.l**.
+**ARKEO** is a modular photovoltaic and optoelectronic characterization platform developed by **CICCI Research s.r.l.**
 
-The ARKEO NOMAD Plugin is an independent integration developed and maintained by CICCI Research for use with NOMAD Oasis.
+The ARKEO NOMAD Plugin is an independent integration developed and maintained by CICCI Research s.r.l. for use with NOMAD Oasis.
 
 **NOMAD** is developed by the NOMAD/FAIRmat community. This documentation does not imply endorsement, certification, or official partnership by NOMAD or FAIRmat.
+
+## License
+
+Copyright © CICCI Research s.r.l.
+
+All rights reserved. See the repository `LICENSE` file for details.
