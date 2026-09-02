@@ -8,8 +8,8 @@ version = "0.1.0"
 description = "NOMAD plugin for parsing and exploring CICCI Research ARKEO photovoltaic measurement data."
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [{name = "CICCI Research"}]
-maintainers = [{name = "CICCI Research"}]
+authors = [{name = "CICCI Research s.r.l."}]
+maintainers = [{name = "CICCI Research s.r.l."}]
 keywords = ["NOMAD", "ARKEO", "photovoltaics", "solar cells", "research data"]
 dependencies = [
   "nomad-lab>=1.4.3,<1.5",

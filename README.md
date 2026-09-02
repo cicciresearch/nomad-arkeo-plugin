@@ -57,13 +57,15 @@ https://cicciresearch.github.io/nomad-arkeo-plugin/
 
 - [Installation guide](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/install_this_plugin/)
 - [How to use](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/use_this_plugin/)
+- [Support](https://cicciresearch.github.io/nomad-arkeo-plugin/support/)
+- [Release v0.1.0](https://github.com/cicciresearch/nomad-arkeo-plugin/releases/tag/v0.1.0)
 
 ## Installation
 
 Clone the plugin with:
 
 ```bash
-git clone https://github.com/cicciresearch/nomad-arkeo-plugin.git
+git clone --branch v0.1.0 --depth 1 https://github.com/cicciresearch/nomad-arkeo-plugin.git
 ```
 
 Then follow the [installation guide](https://cicciresearch.github.io/nomad-arkeo-plugin/how_to/install_this_plugin/).
@@ -98,6 +100,14 @@ The plugin does not automatically publish research data.
 
 Data uploaded to NOMAD Oasis remain subject to the privacy, sharing, and publication settings of the institution's NOMAD installation.
 
+## Support
+
+For assistance with installation, NOMAD Oasis integration, or ARKEO data compatibility, contact:
+
+**support@cicciresearch.com**
+
+Please do not include passwords, authentication tokens, confidential research data, or other sensitive information in support requests.
+
 ## Development
 
 ```bash
@@ -114,6 +124,6 @@ https://www.cicciresearch.com/
 
 ## License
 
-Copyright © CICCI Research.
+Copyright © CICCI Research s.r.l.
 
-License information will be added before wider software distribution.
+All rights reserved. No permission is granted to copy, modify, redistribute, or commercially use this software without prior written authorization from CICCI Research s.r.l.
