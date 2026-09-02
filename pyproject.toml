@@ -22,7 +22,7 @@ dev = ["pytest>=8", "ruff>=0.6"]
 [project.urls]
 Homepage = "https://www.cicciresearch.com/"
 Repository = "https://github.com/cicciresearch/nomad-arkeo-plugin"
-Documentation = "https://github.com/cicciresearch/nomad-arkeo-plugin/tree/main/docs"
+Documentation = "https://cicciresearch.github.io/nomad-arkeo-plugin/"
 Issues = "https://github.com/cicciresearch/nomad-arkeo-plugin/issues"
 
 [project.entry-points.'nomad.plugin']
