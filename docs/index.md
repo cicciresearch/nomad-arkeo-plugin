@@ -1,6 +1,6 @@
 # ARKEO NOMAD Plugin
 
-The **ARKEO NOMAD Plugin** connects CICCI Research ARKEO measurement data with **NOMAD Oasis**.
+The **ARKEO NOMAD Plugin** connects ARKEO measurement data from CICCI Research s.r.l. with **NOMAD Oasis**.
 
 It allows supported ARKEO TXT files to be uploaded directly to NOMAD and converted into structured, searchable research data.
 
