@@ -6,6 +6,8 @@ repo_name: cicciresearch/nomad-arkeo-plugin
 
 theme:
   name: material
+  logo: assets/cicci-logo.png
+  favicon: assets/cicci-logo.png
 
 nav:
   - Home: index.md
